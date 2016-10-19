@@ -4,10 +4,36 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>UI_Role_01.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,26},{114,66}}</string>
+                <key>offset</key>
+                <string>{-1,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{32,12},{114,66}}</string>
+                <key>sourceSize</key>
+                <string>{180,90}</string>
+            </dict>
+            <key>UI_Role_02.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{183,2},{136,70}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{136,70}}</string>
+                <key>sourceSize</key>
+                <string>{136,70}</string>
+            </dict>
             <key>blood_box.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{545,2},{179,22}}</string>
+                <string>{{183,98},{179,22}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +46,7 @@
             <key>blood_in.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{364,2},{179,22}}</string>
+                <string>{{2,98},{179,22}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +59,7 @@
             <key>magic_box.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{183,2},{179,22}}</string>
+                <string>{{118,74},{179,22}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -64,9 +90,9 @@
             <key>realTextureFileName</key>
             <string>UI_Battle01.png</string>
             <key>size</key>
-            <string>{726,26}</string>
+            <string>{364,122}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:7ff22514b2dc303a3b8fdc73e995e9c9$</string>
+            <string>$TexturePacker:SmartUpdate:68a5b92a7c4a14bc321d4decc3406215$</string>
             <key>textureFileName</key>
             <string>UI_Battle01.png</string>
         </dict>

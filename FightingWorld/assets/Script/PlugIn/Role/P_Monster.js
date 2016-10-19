@@ -19,6 +19,7 @@ cc.Class({
 
     startGame : function () {
         //reset data
+        this._jobComp.whenStart();
         this._setHeroAttrs();
         this._doAfterAttrSet();
     },
@@ -56,8 +57,8 @@ cc.Class({
         }
     },
 
-    walkCallBack : function (offX, offY) {
-        //G_RoleContainer.moveMap(offX, offY);
+    walkCallBack : function () {
+
     },
 
     // called every frame, uncomment this function to activate update callback

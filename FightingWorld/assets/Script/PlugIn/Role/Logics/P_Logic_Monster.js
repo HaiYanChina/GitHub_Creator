@@ -69,7 +69,7 @@ cc.Class({
                  if(objLength < this._jobComp.getViewLength()){
                      //监视对象出现在视野内
                      this._isInView = true;
-                     this._doLogic();
+                     //this._doLogic();
                  }else if(this._isInView) {
                      this._jobComp.forceStand();
                      this._isInView = false;

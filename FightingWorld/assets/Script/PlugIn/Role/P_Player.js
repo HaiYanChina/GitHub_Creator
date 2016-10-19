@@ -27,6 +27,7 @@ cc.Class({
 
     startGame : function () {
         //reset data
+        this._jobComp.whenStart();
         this._setHeroAttrs();
         this._doAfterAttrSet();
     },
@@ -42,7 +43,7 @@ cc.Class({
         this._jobComp._atkRectH = this._jobComp.getAniHeight() * 0.8;
         this._jobComp._comboCD = 2;
         this._jobComp._riseSpeedCD = 2;
-        this._jobComp._ristSpeedValue = 1;
+        this._jobComp._ristSpeedValue = 2;
         //普通攻击连击的三个技能
         this._jobComp._list_Normal_atk = [1,2,3];
         //属性  暴击闪避几率是按照千分之几来算
@@ -63,8 +64,8 @@ cc.Class({
         }
     },
 
-    walkCallBack : function (offX, offY) {
-        var isOK = G_RoleContainer.moveMap(offX, offY);
+    walkCallBack : function (playerPos) {
+        var isOK = G_RoleContainer.setViewpointCenter(playerPos);
         //if(!isOK) this._jobComp.forceStand();
     },
 

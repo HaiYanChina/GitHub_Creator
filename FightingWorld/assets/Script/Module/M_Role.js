@@ -12,6 +12,7 @@ cc.Class({
     _bloodBarComp : null,
     _objectType : null,
     _roleTypeComp : null,
+    _aniStateComp_walk : null,
     _aniNode : null,
     _riseLimit : null,
     _flyLabNum : null,
@@ -49,6 +50,10 @@ cc.Class({
         this._riseLimit = false;
         this._riseAct = null;
         this._bloodBarComp = this.p_bloodBar.getComponent('P_ProgressBar');
+    },
+
+    whenStart : function () {
+        this.resetZOrder();
     },
 
     _act_stand : function () {
@@ -170,6 +175,7 @@ cc.Class({
         if(this._aniState==G_Type.Type_aniState.walk){
             //移动速度增幅的大小
             this._resetSpeed(this._ristSpeedValue);
+            this._setAniWalkSpeed(2);
             this._sortWalk();
         }
     },
@@ -226,6 +232,22 @@ cc.Class({
             }
         }
         return true;
+    },
+    //动画播放的速度
+    _setAniWalkSpeed : function (speedValue) {
+        if(this._aniStateComp_walk){
+            if(!speedValue) speedValue = 1;
+            this._aniStateComp_walk.speed = speedValue;
+        }
+    },
+    //设置行走速度
+    _resetSpeed : function (value) {
+        if(this._riseAct) this.node.stopAction(this._riseAct);
+        if(!value) {
+            this._curSpeed = this.p_buttonWalkSpeed;
+            this._setAniWalkSpeed();
+        } else this._curSpeed += value;
+        this._offCenter = Math.sqrt(this._curSpeed*this._curSpeed/2);
     },
 
     //========================skill===0
@@ -315,13 +337,6 @@ cc.Class({
 
     //========================flyLab===1
 
-    _resetSpeed : function (value) {
-        if(this._riseAct) this.node.stopAction(this._riseAct);
-        if(!value) this._curSpeed = this.p_buttonWalkSpeed;
-        else this._curSpeed += value;
-        this._offCenter = Math.sqrt(this._curSpeed*this._curSpeed/2);
-    },
-
     //刷新动画对象的方向
     _resetAniDir : function (dirType) {
         if(dirType && (dirType == G_Type.Type_dir.left || dirType == G_Type.Type_dir.right)) this._dir = dirType;
@@ -330,8 +345,14 @@ cc.Class({
         }else this._aniNode.scaleX = 1;
     },
 
-    _walkCallBack : function (offX, offY) {
-        this._roleTypeComp.walkCallBack(offX, offY);
+    //刷新角色站位的高度
+    resetZOrder : function () {
+        this.node.zIndex = G_RoleContainer.getZIndex(this.node.y);
+    },
+
+    _walkCallBack : function () {
+        this._roleTypeComp.walkCallBack(this.node.getPosition());
+        this.resetZOrder();
     },
 
     getOdds : function () {
@@ -393,12 +414,12 @@ cc.Class({
                  offX = this._offX;
                  offY = this._offY;
              }
-             this._walkCallBack(offX, offY);
              offX = this.node.x + offX;
              offY = this.node.y + offY;
              if(!this._getIsWalkLimit(offX, offY)){
                  this.node.x = offX;
                  this.node.y = offY;
+                 this._walkCallBack();
              }
          }
      },

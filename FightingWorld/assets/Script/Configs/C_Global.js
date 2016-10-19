@@ -2,6 +2,12 @@
 window.G_Center = null;
 window.G_RoleContainer = null;
 
+
+var CG = CG || {};
+CG._W2  = cc.visibleRect.width/2;
+CG._H2  = cc.visibleRect.height/2;
+window.CG = CG;
+
 var gg = {
     //获取区域内的随机数，返回数值可能是最大 最小值
     getRandomArea : function(downNum, upNum) {

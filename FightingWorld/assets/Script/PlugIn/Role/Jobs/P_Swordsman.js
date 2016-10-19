@@ -90,7 +90,7 @@ cc.Class({
     _act_walk : function () {
         if(this._getAniStateLimit(G_Type.Type_aniState.walk)) return;
         this._super();
-        this._ani.play(this.p_aniName_walk);
+        this._aniStateComp_walk = this._ani.play(this.p_aniName_walk);
     },
 
     _act_hurt : function () {

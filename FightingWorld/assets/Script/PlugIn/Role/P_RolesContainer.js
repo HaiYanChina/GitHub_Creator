@@ -18,10 +18,8 @@ cc.Class({
         this._playerComp = this.p_leftCompetitor.getComponent('P_Player');
         this._monsterComp = this.p_monster.getComponent('P_Monster');
 
-        //console.log(this.node.width-cc.visibleRect.width)
-        //console.log(this.node.height-cc.visibleRect.height)
-        //this.node.x = -(this.node.width-cc.visibleRect.width);
-        //this.node.y = -(this.node.height-cc.visibleRect.height);
+        this._mapMaxW = this.node.width - CG._W2;
+        this._mapMaxH = this.node.height - CG._H2;
     },
 
     startGame : function () {
@@ -73,35 +71,27 @@ cc.Class({
     skillOutCD : function (skillIndex) {
         this._playerJobComp.skillOutCD(skillIndex);
     },
+    // move map's pos, set player in center;
+    setViewpointCenter : function(viewPoint) {
+        var curX = Math.max(viewPoint.x, CG._W2);
+        var curY = Math.max(viewPoint.y, CG._H2);
+        //使得地图坐标保持在屏幕内
+        curX = Math.min(curX, this._mapMaxW);
+        curY = Math.min(curY, this._mapMaxH);
 
-    moveMap : function (offX, offY) {
-        this.node.x += -offX;
-        this.node.y += -offY;
-        if(this.node.x > 0) {
-            this.node.x = 0;
-            return false;
-        }
-        if(this.node.y > 0) {
-            this.node.y = 0;
-            return false;
-        }
-        if(this.node.x < -(this.node.width-cc.visibleRect.width)) {
-            this.node.x = -(this.node.width-cc.visibleRect.width);
-            return false;
-        }
-        if(this.node.y < -(this.node.height-cc.visibleRect.height)) {
-            this.node.y = -(this.node.height-cc.visibleRect.height);
-            return false;
-        }
-        return true;
+        viewPoint = cc.pSub(cc.p(CG._W2, CG._H2), cc.p(curX, curY));
+        this.node.setPosition(viewPoint);
     },
+
     getMapW : function () {
         return this.node.width;
     },
     getMapH : function () {
         return this.node.height;
     },
-
+    getZIndex : function (posY) {
+        return Math.floor((this.node.height - posY) / Config_Common.updateZIndexNum);
+    },
     getPlayerNode : function () {
         return this.p_leftCompetitor;
     },
