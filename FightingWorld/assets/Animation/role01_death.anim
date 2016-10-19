@@ -1,0 +1,37 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "role01_death",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.23076923076923078,
+  "sample": 13,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "55209f2e-8316-4a3f-bfd9-0f2c37903403"
+            }
+          },
+          {
+            "frame": 0.07692307692307693,
+            "value": {
+              "__uuid__": "c3344495-035e-4824-acb6-86d6e09d2bc7"
+            }
+          },
+          {
+            "frame": 0.15384615384615385,
+            "value": {
+              "__uuid__": "18e52b90-0715-4303-a516-9a4ad47f4317"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "role01_atk03",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.75,
+  "sample": 8,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "550a180d-8d04-4dde-a02a-fb56c8e74db6"
+            }
+          },
+          {
+            "frame": 0.125,
+            "value": {
+              "__uuid__": "33c361ff-9a15-4562-a9ff-465f207f866b"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "80362365-6484-4139-ab4b-122af7e3b6d7"
+            }
+          },
+          {
+            "frame": 0.375,
+            "value": {
+              "__uuid__": "758a9998-5981-481e-8425-94f9b770f62f"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "7e15690f-a08c-4567-8d92-3c6f52d0bf71"
+            }
+          },
+          {
+            "frame": 0.625,
+            "value": {
+              "__uuid__": "77f3bbd4-d1af-4715-b89c-0737262bae5e"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0.375,
+      "func": "aniFrame_atkCallBack",
+      "params": [
+        "role01_atk03-01"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "role01_hurt",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.08,
+  "sample": 25,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "ce59a7ce-add8-4886-81ef-bbb8e9ed0bca"
+            }
+          },
+          {
+            "frame": 0.04,
+            "value": {
+              "__uuid__": "73cac3c6-40a3-4ab2-a1ff-7c7b80ca6992"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
